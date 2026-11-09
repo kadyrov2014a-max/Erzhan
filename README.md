@@ -1,90 +1,44 @@
 
-# ERZHAN™ — A Whole Character
+# ERZHAN — The Archive
 
-> One person. Countless stories. A whole character.
-
-## About the project
-
-ERZHAN™ is a personal creative website dedicated to Erzhan.
-
-The project combines a premium black-and-white aesthetic, personal photography, memories, interactive elements and a minimal editorial design.
-
-This is an unofficial personal project created with appreciation.
+A personal scrapbook website with photos, memories, stories, memes and an interactive quiz.
 
 ## Features
 
-- Responsive design for desktop, tablet and mobile.
-- Minimal black-and-white visual identity.
-- Personal photo gallery.
-- Character analysis section.
-- Interactive quiz with five questions.
-- Hidden secret message.
-- Smooth scrolling and navigation.
-- Custom CSS animations and hover effects.
-
-## Technologies
-
-- HTML5
-- CSS3
-- JavaScript
-- Google Fonts
-- GitHub Pages
+- Responsive design for mobile and desktop
+- Scrapbook-inspired visual style
+- Photo gallery with lightbox
+- Personal dossier
+- Memory timeline
+- Meme section
+- Interactive quiz
+- Secret message
+- Optional background music
 
 ## Project Structure
 
 ```text
 ERZHAN/
-│
 ├── index.html
 ├── style.css
 ├── script.js
 ├── README.md
-│
 └── assets/
-    └── images/
-        ├── portrait-bw.jpg
-        ├── friends-mirror.jpg
-        ├── waterfall-trip.jpg
-        ├── hiking-friends.jpg
-        └── lake-friends.jpg
+    ├── images/
+    ├── audio/
+    └── stickers/
 ```
 
-## Installation
+## How to run
 
-1. Clone or download this repository.
-2. Open the project folder.
-3. Make sure all images are inside `assets/images/`.
-4. Open `index.html` in your browser.
+Open `index.html` in your browser.
 
-## Deployment
+## GitHub Pages
 
-This project can be published using GitHub Pages.
+1. Open repository Settings.
+2. Select Pages.
+3. Under Build and deployment choose Deploy from a branch.
+4. Select the `main` branch and `/ (root)`.
+5. Save.
 
-1. Open your GitHub repository.
-2. Go to Settings.
-3. Select Pages.
-4. Under Build and deployment, select Deploy from a branch.
-5. Choose the `main` branch and `/ (root)` folder.
-6. Save your settings.
-
-Your website will be published at:
-
-`https://YOUR-USERNAME.github.io/ERZHAN/`
-
-Replace `YOUR-USERNAME` with your GitHub username.
-
-## Customization
-
-You can customize:
-
-- Text and descriptions in `index.html`.
-- Colors, typography and layout in `style.css`.
-- Quiz questions and answers in `script.js`.
-- Photographs inside `assets/images/`.
-
-## Credits
-
-Created as a personal creative project.
-
-© 2026 ERZHAN™ — Unofficial Personal Archive.
-
+Your website will be published using GitHub Pages.
