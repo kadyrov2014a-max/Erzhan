@@ -2,347 +2,351 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Личный scrapbook-сайт Эржана — воспоминания, фотографии и истории.">
+  <meta name="theme-color" content="#fff8e9">
+  <title>ERZHAN — The Archive</title>
 
-    <title>ERZHAN™ — A Whole Character</title>
-    <meta name="description" content="The unofficial archive of Erzhан. A whole character, a whole story.">
-    <meta name="theme-color" content="#0a0a0a">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&family=Pacifico&display=swap" rel="stylesheet">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
 
 <body>
 
-    <!-- HEADER -->
-    <header class="header">
-        <nav class="navbar container">
-            <a href="#home" class="logo">ERZHAN<span>™</span></a>
-
-            <button class="menu-toggle" id="menu-toggle"
-                aria-label="Open navigation" aria-expanded="false">
-                <span></span>
-                <span></span>
-            </button>
-
-            <div class="nav-links" id="nav-links">
-                <a href="#about">ABOUT</a>
-                <a href="#gallery">GALLERY</a>
-                <a href="#report">REPORT</a>
-                <a href="#quiz">QUIZ</a>
-            </div>
-        </nav>
-    </header>
-
-
-    <main>
-
-        <!-- HERO -->
-        <section class="hero container" id="home">
-
-            <div class="hero-content">
-                <p class="eyebrow">THE UNOFFICIAL OFFICIAL ARCHIVE · EST. 2026</p>
-
-                <h1>ERZHAN<span>™</span></h1>
-
-                <h2>A WHOLE CHARACTER.</h2>
-
-                <p class="hero-description">
-                    One person. Countless stories.
-                    A personality that deserves its own website.
-                </p>
-
-                <a href="#about" class="button">
-                    DISCOVER THE STORY <span>↗</span>
-                </a>
-            </div>
-
-            <div class="hero-image">
-                <img
-                    src="assets/images/portrait-bw.jpg"
-                    alt="Erzhan portrait"
-                    fetchpriority="high">
-                <span class="image-caption">FIG. 001 — THE MAIN CHARACTER</span>
-            </div>
-
-            <div class="hero-bottom">
-                <span>PERSONAL ARCHIVE</span>
-                <span>01 / 06</span>
-                <span>MADE WITH APPRECIATION</span>
-            </div>
-
-        </section>
-
-
-        <!-- ABOUT -->
-        <section class="section container" id="about">
-
-            <div class="section-heading">
-                <p class="eyebrow">01 — INTRODUCTION</p>
-                <span class="section-number">01</span>
-            </div>
-
-            <div class="about-grid">
-                <h2 class="section-title">
-                    NOT JUST<br>
-                    ANOTHER<br>
-                    <span>PERSON.</span>
-                </h2>
-
-                <div class="about-text">
-                    <p>
-                        Meet Erzhan. An individual with his own
-                        personality, unforgettable moments and
-                        a collection of stories worth remembering.
-                    </p>
-
-                    <p>
-                        This little corner of the internet is dedicated
-                        to the adventures, friendships and memories
-                        that make every story unique.
-                    </p>
-
-                    <p class="small-note">
-                        A personal project. An unofficial archive.
-                        100% made with appreciation.
-                    </p>
-                </div>
-            </div>
-
-        </section>
-
-
-        <!-- GALLERY -->
-        <section class="section gallery-section" id="gallery">
-
-            <div class="container">
-
-                <div class="section-heading">
-                    <p class="eyebrow">02 — VISUAL ARCHIVE</p>
-                    <span class="section-number">02</span>
-                </div>
-
-                <div class="gallery-intro">
-                    <h2 class="section-title">
-                        MOMENTS<br>
-                        <span>IN FRAME.</span>
-                    </h2>
-
-                    <p>
-                        A collection of photographs,
-                        places and unforgettable memories.
-                    </p>
-                </div>
-
-                <div class="gallery">
-
-                    <figure class="gallery-item gallery-large">
-                        <img src="assets/images/portrait-bw.jpg"
-                             alt="Erzhan portrait" loading="lazy">
-                        <figcaption>
-                            <span>01</span> THE PORTRAIT
-                        </figcaption>
-                    </figure>
-
-                    <figure class="gallery-item">
-                        <img src="assets/images/friends-mirror.jpg"
-                             alt="Friends mirror photograph" loading="lazy">
-                        <figcaption>
-                            <span>02</span> THE CREW
-                        </figcaption>
-                    </figure>
-
-                    <figure class="gallery-item">
-                        <img src="assets/images/waterfall-trip.jpg"
-                             alt="Waterfall trip" loading="lazy">
-                        <figcaption>
-                            <span>03</span> THE JOURNEY
-                        </figcaption>
-                    </figure>
-
-                    <figure class="gallery-item">
-                        <img src="assets/images/hiking-friends.jpg"
-                             alt="Hiking with friends" loading="lazy">
-                        <figcaption>
-                            <span>04</span> THE ADVENTURE
-                        </figcaption>
-                    </figure>
-
-                    <figure class="gallery-item gallery-wide">
-                        <img src="assets/images/lake-friends.jpg"
-                             alt="Friends near the lake" loading="lazy">
-                        <figcaption>
-                            <span>05</span> THE MEMORIES
-                        </figcaption>
-                    </figure>
-
-                </div>
-
-            </div>
-        </section>
-
-
-        <!-- PERSONALITY REPORT -->
-        <section class="section container" id="report">
-
-            <div class="section-heading">
-                <p class="eyebrow">03 — CHARACTER ANALYSIS</p>
-                <span class="section-number">03</span>
-            </div>
-
-            <h2 class="section-title">
-                THE PERSONALITY<br>
-                <span>REPORT.</span>
-            </h2>
-
-            <div class="report-list">
-
-                <div class="report-item">
-                    <span>01</span>
-                    <h3>Main character energy</h3>
-                    <p>Always somehow in the middle of the story.</p>
-                </div>
-
-                <div class="report-item">
-                    <span>02</span>
-                    <h3>Unpredictable nature</h3>
-                    <p>Expect the unexpected.</p>
-                </div>
-
-                <div class="report-item">
-                    <span>03</span>
-                    <h3>Memorable moments</h3>
-                    <p>Some stories never get old.</p>
-                </div>
-
-                <div class="report-item">
-                    <span>04</span>
-                    <h3>One of a kind</h3>
-                    <p>No replacement. No duplicates.</p>
-                </div>
-
-            </div>
-
-            <p class="small-note">
-                DISCLAIMER: This report is completely unofficial.
-            </p>
-
-        </section>
-
-
-        <!-- QUOTE -->
-        <section class="quote-section">
-
-            <div class="container quote-content">
-                <p class="eyebrow">04 — THE PHILOSOPHY</p>
-
-                <h2>
-                    "Some people create memories.
-                    Some people become them."
-                </h2>
-
-                <p class="quote-author">— THE ERZHAN ARCHIVE</p>
-            </div>
-
-        </section>
-
-
-        <!-- QUIZ -->
-        <section class="section container" id="quiz">
-
-            <div class="section-heading">
-                <p class="eyebrow">05 — INTERACTIVE EXPERIENCE</p>
-                <span class="section-number">05</span>
-            </div>
-
-            <h2 class="section-title">
-                HOW WELL DO<br>
-                YOU KNOW <span>ERZHAN?</span>
-            </h2>
-
-            <p class="quiz-description">
-                Think you know the main character?
-                Let's put that knowledge to the test.
-            </p>
-
-            <div class="quiz-box">
-
-                <div class="quiz-top">
-                    <span id="question-counter">READY?</span>
-                    <span id="score-display">SCORE: 0</span>
-                </div>
-
-                <div id="quiz-container">
-                    <h3>ARE YOU READY?</h3>
-                    <p>Five questions. One challenge.</p>
-
-                    <button class="button" id="start-quiz">
-                        START THE TEST ↗
-                    </button>
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- SECRET MESSAGE -->
-        <section class="secret-section">
-
-            <div class="container secret-content">
-
-                <p class="eyebrow">06 — CLASSIFIED INFORMATION</p>
-
-                <h2>ONE LAST<br><span>THING.</span></h2>
-
-                <p>
-                    There is something hidden in this archive.
-                </p>
-
-                <button class="button button-light" id="secret-button">
-                    REVEAL MESSAGE ↗
-                </button>
-
-                <p class="secret-message" id="secret-message" hidden>
-                    Erzhan, stay legendary.
-                    Keep making memories and never stop being yourself.
-                    This website is proof that you are appreciated.
-                </p>
-
-            </div>
-
-        </section>
-
-    </main>
-
-
-    <!-- FOOTER -->
-    <footer class="footer">
-
-        <div class="container footer-content">
-
-            <a href="#home" class="logo">ERZHAN<span>™</span></a>
-
-            <p>A WHOLE CHARACTER. A WHOLE STORY.</p>
-
-            <a href="#home" class="back-top">BACK TO TOP ↑</a>
-
-            <div class="footer-bottom">
-                <span>UNOFFICIAL PERSONAL PROJECT</span>
-                <span>© 2026 ERZHAN ARCHIVE</span>
-            </div>
-
+  <div class="background-doodles" aria-hidden="true">
+    <span>✳</span><span>♡</span><span>✦</span>
+    <span>★</span><span>✿</span><span>✧</span>
+  </div>
+
+  <header class="topbar">
+    <a href="#home" class="logo">E<span>!</span></a>
+
+    <button class="menu-toggle" id="menuToggle"
+      aria-label="Открыть меню" aria-expanded="false">
+      ☰
+    </button>
+
+    <nav class="navigation" id="navigation">
+      <a href="#home">Главная</a>
+      <a href="#about">Досье</a>
+      <a href="#gallery">Фото</a>
+      <a href="#timeline">Истории</a>
+      <a href="#memes">Мемы</a>
+      <a href="#quiz">Тест</a>
+    </nav>
+
+    <a href="#secret" class="top-button">Secret note ↗</a>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero section" id="home">
+      <div class="hero-left">
+        <div class="tiny-label">✦ AN UNOFFICIAL ARCHIVE ✦</div>
+
+        <h1>
+          THIS IS<br>
+          <span>ERZHAN</span>
+          <span class="scribble">!</span>
+        </h1>
+
+        <p class="hero-description">
+          A little collection of memories, random moments,
+          adventures and everything in between.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#gallery" class="primary-button">Explore archive ↗</a>
+          <a href="#about" class="secondary-button">Get to know him</a>
         </div>
 
-    </footer>
+        <div class="hero-note">
+          <span>✎</span> Made with memories & a little chaos.
+        </div>
+      </div>
 
+      <div class="hero-right">
+        <div class="photo-frame hero-photo">
+          <img src="assets/images/portrait-bw.jpg"
+            alt="Портрет Эржана">
+          <span class="photo-tape"></span>
+        </div>
 
-    <script src="script.js"></script>
+        <div class="sticker sticker-star">★</div>
+        <div class="sticker sticker-smile">☺</div>
+        <div class="sticker sticker-heart">♡</div>
+
+        <div class="photo-caption">the main character</div>
+        <div class="handwritten">one of a kind!</div>
+      </div>
+    </section>
+
+    <!-- STATS -->
+    <section class="stats section">
+      <div class="stat-card yellow">
+        <strong>∞</strong>
+        <span>memories</span>
+      </div>
+      <div class="stat-card pink">
+        <strong>100%</strong>
+        <span>personality</span>
+      </div>
+      <div class="stat-card blue">
+        <strong>24/7</strong>
+        <span>chaos energy</span>
+      </div>
+      <div class="stat-card green">
+        <strong>★</strong>
+        <span>main character</span>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section about-section" id="about">
+      <div class="section-heading">
+        <span class="eyebrow">01 / THE PERSON</span>
+        <h2>Who is <span>Erzhan?</span></h2>
+        <p>A little dossier about the main character.</p>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-photo photo-frame">
+          <img src="assets/images/friends-mirror.jpg"
+            alt="Фотография с друзьями">
+          <span class="photo-label">NO. 001 — ARCHIVE</span>
+        </div>
+
+        <div class="dossier paper-card">
+          <div class="card-top">
+            <span>PERSONAL FILE</span>
+            <span>№ 001</span>
+          </div>
+
+          <h3>ERZHAN ✷</h3>
+
+          <div class="dossier-line">
+            <span>NAME</span>
+            <strong>Erzhan</strong>
+          </div>
+          <div class="dossier-line">
+            <span>STATUS</span>
+            <strong>Legend in progress</strong>
+          </div>
+          <div class="dossier-line">
+            <span>PERSONALITY</span>
+            <strong>To be discovered...</strong>
+          </div>
+          <div class="dossier-line">
+            <span>HOBBIES</span>
+            <strong>Adventures & fun</strong>
+          </div>
+
+          <p class="handwriting">
+            "There is always a story to tell."
+          </p>
+
+          <div class="dossier-stamp">APPROVED ★</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="section gallery-section" id="gallery">
+      <div class="section-heading">
+        <span class="eyebrow">02 / PHOTO DUMP</span>
+        <h2>Captured <span>moments.</span></h2>
+        <p>Some moments deserve their own little place.</p>
+      </div>
+
+      <div class="gallery-grid">
+        <figure class="gallery-item gallery-large">
+          <img src="assets/images/waterfall-trip.jpg"
+            alt="Поездка к водопаду">
+          <figcaption>little escape 🌿</figcaption>
+        </figure>
+
+        <figure class="gallery-item gallery-small">
+          <img src="assets/images/hiking-friends.jpg"
+            alt="Прогулка с друзьями">
+          <figcaption>good company ✨</figcaption>
+        </figure>
+
+        <figure class="gallery-item gallery-small">
+          <img src="assets/images/lake-friends.jpg"
+            alt="Друзья у озера">
+          <figcaption>somewhere by the lake</figcaption>
+        </figure>
+
+        <figure class="gallery-item gallery-wide">
+          <img src="assets/images/friends-mirror.jpg"
+            alt="Фото в зеркале">
+          <figcaption>random memories ♡</figcaption>
+        </figure>
+      </div>
+
+      <p class="gallery-bottom">MORE MEMORIES COMING SOON...</p>
+    </section>
+
+    <!-- TIMELINE -->
+    <section class="section timeline-section" id="timeline">
+      <div class="section-heading">
+        <span class="eyebrow">03 / THE STORY</span>
+        <h2>Little <span>chapters.</span></h2>
+        <p>Every memory is a little chapter.</p>
+      </div>
+
+      <div class="timeline">
+        <article class="timeline-item">
+          <div class="timeline-dot yellow-dot">01</div>
+          <div class="timeline-card">
+            <span>CHAPTER 01</span>
+            <h3>The beginning</h3>
+            <p>Every great story starts somewhere.</p>
+          </div>
+        </article>
+
+        <article class="timeline-item">
+          <div class="timeline-dot pink-dot">02</div>
+          <div class="timeline-card">
+            <span>CHAPTER 02</span>
+            <h3>Adventures</h3>
+            <p>New places, new memories, new stories.</p>
+          </div>
+        </article>
+
+        <article class="timeline-item">
+          <div class="timeline-dot blue-dot">03</div>
+          <div class="timeline-card">
+            <span>CHAPTER 03</span>
+            <h3>The good times</h3>
+            <p>The moments that are worth remembering.</p>
+          </div>
+        </article>
+
+        <article class="timeline-item">
+          <div class="timeline-dot green-dot">04</div>
+          <div class="timeline-card">
+            <span>CHAPTER 04</span>
+            <h3>To be continued...</h3>
+            <p>The best parts of the story are still ahead.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- MEMES -->
+    <section class="section memes-section" id="memes">
+      <div class="section-heading">
+        <span class="eyebrow">04 / THE CHAOS</span>
+        <h2>Certified <span>memes.</span></h2>
+        <p>Because every archive needs a little nonsense.</p>
+      </div>
+
+      <div class="meme-grid">
+        <div class="meme-card meme-yellow">
+          <span class="meme-emoji">🧠</span>
+          <h3>Me: I'll sleep early today.</h3>
+          <p>Also me at 03:00: one more video.</p>
+        </div>
+
+        <div class="meme-card meme-pink">
+          <span class="meme-emoji">💀</span>
+          <h3>99% confidence</h3>
+          <p>1% actual preparation.</p>
+        </div>
+
+        <div class="meme-card meme-blue">
+          <span class="meme-emoji">📸</span>
+          <h3>Just one photo.</h3>
+          <p>Proceeds to take 48 pictures.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- QUIZ -->
+    <section class="section quiz-section" id="quiz">
+      <div class="section-heading">
+        <span class="eyebrow">05 / INTERACTIVE ZONE</span>
+        <h2>How well do you <span>know him?</span></h2>
+        <p>Take the little archive quiz!</p>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-top">
+          <span>THE ERZHAN QUIZ</span>
+          <span id="questionCounter">QUESTION 1 / 5</span>
+        </div>
+
+        <div class="progress-track">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+
+        <h3 id="questionText">Ready to start?</h3>
+        <div class="answers" id="answers"></div>
+
+        <p class="quiz-feedback" id="quizFeedback" aria-live="polite"></p>
+
+        <button class="primary-button quiz-button" id="nextQuestion">
+          Start quiz →
+        </button>
+      </div>
+    </section>
+
+    <!-- SECRET -->
+    <section class="section secret-section" id="secret">
+      <div class="secret-card">
+        <span class="eyebrow">06 / TOP SECRET</span>
+        <div class="secret-icon">💌</div>
+        <h2>A little <span>secret note.</span></h2>
+        <p>Some things are better when you open them.</p>
+
+        <button class="primary-button" id="secretButton">
+          Open the note ✉
+        </button>
+
+        <div class="secret-message" id="secretMessage" hidden>
+          <p>
+            Hey, Erzhan! This little website is a collection
+            of memories, fun moments and good wishes.
+            Keep making stories worth remembering.
+          </p>
+          <span>— from your friends ♡</span>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer-logo">E!</div>
+    <p>MADE WITH ♡ AND A LITTLE CHAOS.</p>
+    <a href="#home">BACK TO TOP ↑</a>
+    <small>ERZHAN ARCHIVE © 2026</small>
+  </footer>
+
+  <!-- MUSIC -->
+  <audio id="backgroundMusic" loop>
+    <source src="assets/audio/background.mp3" type="audio/mpeg">
+  </audio>
+
+  <button class="music-button" id="musicButton"
+    aria-label="Включить или выключить музыку">
+    ♫
+  </button>
+
+  <!-- PHOTO LIGHTBOX -->
+  <dialog class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="closeLightbox"
+      aria-label="Закрыть">×</button>
+    <img id="lightboxImage" src="" alt="">
+    <p id="lightboxCaption"></p>
+  </dialog>
 
 </body>
 </html>
-
