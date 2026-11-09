@@ -1,253 +1,245 @@
 
+document.documentElement.classList.add("js-enabled");
 
-/* =================================
-   ERZHAN™ — INTERACTIVE FEATURES
-   ================================= */
-
-
-/* MOBILE NAVIGATION */
-
-const menuToggle = document.getElementById("menu-toggle");
-const navLinks = document.getElementById("nav-links");
+// MOBILE MENU
+const menuToggle = document.getElementById("menuToggle");
+const navigation = document.getElementById("navigation");
 
 menuToggle.addEventListener("click", () => {
-    const isOpen = navLinks.classList.toggle("active");
-
-    menuToggle.setAttribute("aria-expanded", isOpen);
+  const isOpen = navigation.classList.toggle("open");
+  menuToggle.setAttribute("aria-expanded", String(isOpen));
+  menuToggle.textContent = isOpen ? "×" : "☰";
 });
 
-document.querySelectorAll(".nav-links a").forEach(link => {
-    link.addEventListener("click", () => {
-        navLinks.classList.remove("active");
-        menuToggle.setAttribute("aria-expanded", "false");
-    });
+navigation.querySelectorAll("a").forEach(link => {
+  link.addEventListener("click", () => {
+    navigation.classList.remove("open");
+    menuToggle.setAttribute("aria-expanded", "false");
+    menuToggle.textContent = "☰";
+  });
 });
 
+// MUSIC
+const music = document.getElementById("backgroundMusic");
+const musicButton = document.getElementById("musicButton");
 
-/* QUIZ QUESTIONS
-   Change questions and answers whenever you want.
-*/
-
-const questions = [
-    {
-        question: "What makes Erzhan unforgettable?",
-        answers: [
-            "His personality",
-            "His adventures",
-            "His sense of humour",
-            "All of the above"
-        ],
-        correct: 3
-    },
-    {
-        question: "What is this website dedicated to?",
-        answers: [
-            "A random person",
-            "Erzhan and his memories",
-            "A travel company",
-            "A school project"
-        ],
-        correct: 1
-    },
-    {
-        question: "What can you find in the archive?",
-        answers: [
-            "Photographs",
-            "Stories",
-            "Memories",
-            "All of the above"
-        ],
-        correct: 3
-    },
-    {
-        question: "What is the unofficial motto?",
-        answers: [
-            "Stay ordinary",
-            "A whole character",
-            "No more adventures",
-            "Forget everything"
-        ],
-        correct: 1
-    },
-    {
-        question: "What should Erzhan always remember?",
-        answers: [
-            "Keep making memories",
-            "Stop having adventures",
-            "Be someone else",
-            "Forget the good times"
-        ],
-        correct: 0
+musicButton.addEventListener("click", async () => {
+  if (music.paused) {
+    try {
+      await music.play();
+      musicButton.textContent = "♫";
+      musicButton.title = "Выключить музыку";
+    } catch {
+      musicButton.title = "Добавьте аудиофайл background.mp3";
+      alert("Добавьте свой аудиофайл в assets/audio/background.mp3");
     }
+  } else {
+    music.pause();
+    musicButton.textContent = "♪";
+    musicButton.title = "Включить музыку";
+  }
+});
+
+// PHOTO LIGHTBOX
+const lightbox = document.getElementById("lightbox");
+const lightboxImage = document.getElementById("lightboxImage");
+const lightboxCaption = document.getElementById("lightboxCaption");
+const closeLightbox = document.getElementById("closeLightbox");
+
+document.querySelectorAll(".gallery-item img, .hero-photo img, .about-photo img")
+  .forEach(img => {
+    img.style.cursor = "zoom-in";
+
+    img.addEventListener("click", () => {
+      lightboxImage.src = img.src;
+      lightboxImage.alt = img.alt;
+
+      const caption = img.closest("figure")?.querySelector("figcaption");
+      lightboxCaption.textContent = caption
+        ? caption.textContent
+        : img.alt;
+
+      lightbox.showModal();
+    });
+  });
+
+closeLightbox.addEventListener("click", () => lightbox.close());
+
+lightbox.addEventListener("click", event => {
+  if (event.target === lightbox) {
+    lightbox.close();
+  }
+});
+
+// QUIZ
+const questions = [
+  {
+    question: "What makes a good memory?",
+    answers: ["Good people", "Expensive things", "Nothing"],
+    correct: 0
+  },
+  {
+    question: "What is the best adventure?",
+    answers: ["Staying bored", "Discovering new places", "Doing nothing"],
+    correct: 1
+  },
+  {
+    question: "What belongs in this archive?",
+    answers: ["Only serious things", "Memories and funny moments", "Homework"],
+    correct: 1
+  },
+  {
+    question: "What is the main character's energy?",
+    answers: ["Main character energy", "Background NPC", "Unknown"],
+    correct: 0
+  },
+  {
+    question: "What comes next in the story?",
+    answers: ["More adventures", "The end", "Nothing"],
+    correct: 0
+  }
 ];
 
+const questionText = document.getElementById("questionText");
+const answersBox = document.getElementById("answers");
+const questionCounter = document.getElementById("questionCounter");
+const progressFill = document.getElementById("progressFill");
+const quizFeedback = document.getElementById("quizFeedback");
+const nextButton = document.getElementById("nextQuestion");
 
-let currentQuestion = 0;
+let currentQuestion = -1;
 let score = 0;
 let answered = false;
 
-const quizContainer = document.getElementById("quiz-container");
-const questionCounter = document.getElementById("question-counter");
-const scoreDisplay = document.getElementById("score-display");
-
-const startButton = document.getElementById("start-quiz");
-
-
-/* START QUIZ */
-
-startButton.addEventListener("click", () => {
-    currentQuestion = 0;
-    score = 0;
-
-    scoreDisplay.textContent = "SCORE: 0";
-
-    showQuestion();
-});
-
-
-/* DISPLAY QUESTION */
-
 function showQuestion() {
+  currentQuestion++;
+  answered = false;
+  quizFeedback.textContent = "";
+  answersBox.innerHTML = "";
 
-    answered = false;
+  if (currentQuestion >= questions.length) {
+    showResult();
+    return;
+  }
 
-    const question = questions[currentQuestion];
+  const question = questions[currentQuestion];
 
-    questionCounter.textContent =
-        `QUESTION ${currentQuestion + 1} / ${questions.length}`;
+  questionCounter.textContent =
+    `QUESTION ${currentQuestion + 1} / ${questions.length}`;
 
-    quizContainer.innerHTML = `
-        <h3>${question.question}</h3>
+  progressFill.style.width =
+    `${(currentQuestion / questions.length) * 100}%`;
 
-        <div class="answer-list">
-            ${question.answers.map((answer, index) => `
-                <button class="answer-button" data-index="${index}">
-                    ${String.fromCharCode(65 + index)}.
-                    ${answer}
-                </button>
-            `).join("")}
-        </div>
+  questionText.textContent = question.question;
 
-        <p class="answer-feedback" id="answer-feedback"
-           aria-live="polite"></p>
-    `;
+  question.answers.forEach((answer, index) => {
+    const button = document.createElement("button");
+    button.className = "answer-button";
+    button.textContent = answer;
 
-    quizContainer.querySelectorAll(".answer-button").forEach(button => {
-        button.addEventListener("click", () => {
-            checkAnswer(Number(button.dataset.index));
-        });
-    });
-}
+    button.addEventListener("click", () => {
+      if (answered) return;
 
+      answered = true;
+      const isCorrect = index === question.correct;
 
-/* CHECK ANSWER */
-
-function checkAnswer(selected) {
-
-    if (answered) return;
-
-    answered = true;
-
-    const question = questions[currentQuestion];
-    const buttons = quizContainer.querySelectorAll(".answer-button");
-    const feedback = document.getElementById("answer-feedback");
-
-    const isCorrect = selected === question.correct;
-
-    if (isCorrect) {
+      if (isCorrect) {
         score++;
-        feedback.textContent = "CORRECT! Nice one.";
-    } else {
-        feedback.textContent =
-            "Not quite! The correct answer is: " +
-            question.answers[question.correct];
-    }
+        button.classList.add("correct");
+        quizFeedback.textContent = "Correct! ✨";
+      } else {
+        button.classList.add("wrong");
+        quizFeedback.textContent =
+          `Not quite! Correct answer: ${question.answers[question.correct]}`;
+        answersBox.children[question.correct].classList.add("correct");
+      }
 
-    scoreDisplay.textContent = `SCORE: ${score}`;
+      Array.from(answersBox.children).forEach(item => {
+        item.disabled = true;
+      });
 
-    buttons.forEach((button, index) => {
-        button.disabled = true;
-
-        if (index === question.correct) {
-            button.style.borderColor = "#a5c99c";
-        }
-    });
-
-    const nextButton = document.createElement("button");
-
-    nextButton.className = "button";
-    nextButton.style.marginTop = "20px";
-
-    nextButton.textContent =
+      nextButton.hidden = false;
+      nextButton.textContent =
         currentQuestion === questions.length - 1
-            ? "SEE MY RESULT ↗"
-            : "NEXT QUESTION ↗";
-
-    nextButton.addEventListener("click", () => {
-
-        currentQuestion++;
-
-        if (currentQuestion < questions.length) {
-            showQuestion();
-        } else {
-            showResult();
-        }
-
+          ? "See my result →"
+          : "Next question →";
     });
 
-    quizContainer.appendChild(nextButton);
+    answersBox.appendChild(button);
+  });
+
+  nextButton.hidden = true;
 }
-
-
-/* FINAL RESULT */
 
 function showResult() {
+  questionCounter.textContent = "QUIZ COMPLETE";
+  progressFill.style.width = "100%";
+  answersBox.innerHTML = "";
+  quizFeedback.textContent = "";
 
-    questionCounter.textContent = "TEST COMPLETED";
+  questionText.textContent =
+    `Your score: ${score} / ${questions.length} ⭐`;
 
-    let message = "";
+  const result = document.createElement("p");
+  result.textContent =
+    score === 5
+      ? "Perfect! You know this archive inside out!"
+      : score >= 3
+        ? "Pretty good! You know a thing or two!"
+        : "Time to explore the archive again!";
 
-    if (score === 5) {
-        message = "LEGENDARY! You know the archive perfectly.";
-    } else if (score >= 3) {
-        message = "IMPRESSIVE! You know quite a lot.";
-    } else {
-        message = "THE ARCHIVE REMAINS A MYSTERY.";
-    }
+  result.style.marginTop = "15px";
+  result.style.fontWeight = "800";
+  answersBox.appendChild(result);
 
-    quizContainer.innerHTML = `
-        <h3>${score} / ${questions.length}</h3>
-
-        <p>${message}</p>
-
-        <button class="button" id="restart-quiz">
-            TRY AGAIN ↗
-        </button>
-    `;
-
-    document.getElementById("restart-quiz")
-        .addEventListener("click", () => {
-            currentQuestion = 0;
-            score = 0;
-            scoreDisplay.textContent = "SCORE: 0";
-            showQuestion();
-        });
+  nextButton.hidden = false;
+  nextButton.textContent = "Try again ↻";
+  nextButton.onclick = () => {
+    currentQuestion = -1;
+    score = 0;
+    nextButton.onclick = null;
+    showQuestion();
+  };
 }
 
+nextButton.addEventListener("click", () => {
+  if (currentQuestion === -1) {
+    showQuestion();
+  } else if (currentQuestion < questions.length - 1) {
+    showQuestion();
+  } else if (currentQuestion === questions.length - 1 && answered) {
+    showQuestion();
+  }
+});
 
-/* SECRET MESSAGE */
-
-const secretButton = document.getElementById("secret-button");
-const secretMessage = document.getElementById("secret-message");
+// SECRET MESSAGE
+const secretButton = document.getElementById("secretButton");
+const secretMessage = document.getElementById("secretMessage");
 
 secretButton.addEventListener("click", () => {
-
-    const isHidden = secretMessage.hidden;
-
-    secretMessage.hidden = !isHidden;
-
-    secretButton.textContent = isHidden
-        ? "HIDE MESSAGE ↑"
-        : "REVEAL MESSAGE ↗";
-
+  const isHidden = secretMessage.hidden;
+  secretMessage.hidden = !isHidden;
+  secretButton.textContent = isHidden
+    ? "Close the note ✉"
+    : "Open the note ✉";
 });
+
+// SCROLL REVEAL
+const revealElements = document.querySelectorAll(".section, .stats");
+
+if ("IntersectionObserver" in window) {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.08
+  });
+
+  revealElements.forEach(element => observer.observe(element));
+} else {
+  revealElements.forEach(element => element.classList.add("visible"));
+}
